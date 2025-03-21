@@ -1,0 +1,74 @@
+graph TD
+    subgraph "대화 턴 수에 따른 AI 모델 기억 보존율"
+    A[대화 턴 수] --> B["0-10 턴"]
+    A --> C["11-50 턴"]
+    A --> D["51-100 턴"]
+    A --> E["101-200 턴"]
+    A --> F["200+ 턴"]
+    
+    style A fill:#f9f9f9,stroke:#333,stroke-width:2px
+    style B fill:#e1f5fe,stroke:#01579b,stroke-width:1px
+    style C fill:#e1f5fe,stroke:#01579b,stroke-width:1px
+    style D fill:#e1f5fe,stroke:#01579b,stroke-width:1px
+    style E fill:#e1f5fe,stroke:#01579b,stroke-width:1px
+    style F fill:#e1f5fe,stroke:#01579b,stroke-width:1px
+    
+    subgraph "모델별 기억 능력"
+        Z1["zenalife-1.0\n(70% 보존율)"]
+        Z2["zenalife-2.0\n(82% 보존율)"]
+        Z25["zenalife-2.5\n(85% 보존율)"]
+        Z3["zenalife-3.0\n(90% 보존율)"]
+        Z4["zenalife-4.0\n(99% 보존율)"]
+        C35["claude-3.5\n(88% 보존율)"]
+        C37["claude-3.7\n(92% 보존율)"]
+        G2["gemini-2.0-flash\n(86% 보존율)"]
+        G3["gemma-3-27b\n(84% 보존율)"]
+        
+        style Z1 fill:#fff9c4,stroke:#f57f17,stroke-width:1px
+        style Z2 fill:#fff9c4,stroke:#f57f17,stroke-width:1px
+        style Z25 fill:#fff9c4,stroke:#f57f17,stroke-width:1px
+        style Z3 fill:#fff9c4,stroke:#f57f17,stroke-width:1px
+        style Z4 fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+        style C35 fill:#f3e5f5,stroke:#6a1b9a,stroke-width:1px
+        style C37 fill:#f3e5f5,stroke:#6a1b9a,stroke-width:1px
+        style G2 fill:#e8eaf6,stroke:#283593,stroke-width:1px
+        style G3 fill:#e8eaf6,stroke:#283593,stroke-width:1px
+    end
+    
+    B --> Z1
+    B --> Z2
+    B --> Z25
+    B --> Z3
+    B --> Z4
+    B --> C35
+    B --> C37
+    B --> G2
+    B --> G3
+    
+    C --> Z1
+    C --> Z2
+    C --> Z25
+    C --> Z3
+    C --> Z4
+    C --> C35
+    C --> C37
+    C --> G2
+    C --> G3
+    
+    D --> Z2
+    D --> Z25
+    D --> Z3
+    D --> Z4
+    D --> C35
+    D --> C37
+    D --> G2
+    
+    E --> Z3
+    E --> Z4
+    E --> C37
+    
+    F --> Z4
+    
+    classDef highlight fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px;
+    class Z4 highlight
+    end
